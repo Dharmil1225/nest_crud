@@ -10,13 +10,14 @@ export const dbOptions = {
   port: envConfig.app.database.port,
   username: envConfig.app.database.user,
   database: envConfig.app.database.name,
+  password: envConfig.app.database.password,
 };
 
 export const connection = new DataSource({
   ...dbOptions,
   logging: true,
   entities: [__dirname + '/entities/*.entity{.ts,.js}'],
-  synchronize: envConfig.enviroment === 'local' ? true : false,
+  synchronize: true,
 });
 
 export const databaseProvider = [

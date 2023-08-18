@@ -16,6 +16,12 @@ export class UsersService {
   constructor() {
     this.userRepo = connection.getRepository(User);
   }
+
+  /**
+   * This function can be used to create a new user in database
+   * @param data object containing user's data.
+   * @returns it will returns created user's object
+   */
   public async createUser(data: CreateUserDto) {
     try {
       const mapCreateUserReqData = mapCreateUser(
@@ -33,6 +39,10 @@ export class UsersService {
     }
   }
 
+  /**
+   * This function can be used to find all users from database
+   * @returns it will returns all user's objects
+   */
   public async findAllUser() {
     try {
       const users = await this.userRepo.find();
@@ -45,6 +55,11 @@ export class UsersService {
     }
   }
 
+  /**
+   * This function can be used to find a single user from database
+   * @param id user's id
+   * @returns it will returns single user's object
+   */
   public async findSingleUser(id: string) {
     try {
       const user = await this.userRepo.findOne({
@@ -63,6 +78,12 @@ export class UsersService {
     }
   }
 
+  /**
+   * This function can be used to update a single user from database
+   * @param id user's id
+   * @param data user's requested data
+   * @returns it will returns updated user's object
+   */
   public async updateUser(id: string, data: CreateUserDto) {
     try {
       const user = await this.userRepo.findOne({ where: { id } });
@@ -79,6 +100,11 @@ export class UsersService {
     }
   }
 
+  /**
+   * This function can be used to delete a single user from database
+   * @param id user's id
+   * @returns it will returns delete message
+   */
   public async deleteUser(id: string) {
     try {
       const existingUser = await this.userRepo.findOne({ where: { id } });
