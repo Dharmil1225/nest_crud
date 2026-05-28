@@ -5,24 +5,30 @@ on:
     branches:
       - development
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   create-pull-request:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: staging
-          branch: development
+          branch: auto/dev-to-staging-pr
           title: "Sync development → staging"
           body: |
-            This PR was automatically created after changes were pushed to development.
+            This PR was automatically created from development to staging.
 
-            - Automated sync from development to staging
-            - PR intentionally left open for review
+            - Manual review required
+            - PR intentionally left open
             - Do not auto-merge
