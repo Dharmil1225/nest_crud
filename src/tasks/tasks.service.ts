@@ -47,6 +47,7 @@ export class TasksService {
   public async findAllTask() {
     try {
       const tasks = await this.taskRepo.find();
+      Logger.log(tasks, 'findAllTask');
       return {
         message: 'Tasks fetched successfully',
         data: tasks.map((val) => new TaskResponseDto(val)),
