@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Injectable,
   InternalServerErrorException,
+  Logger,
 } from '@nestjs/common';
 import { TaskResponseDto } from './dto/task.res.dto';
 import { mapCreateTask, mapUpdateTask } from './mapper/task.mapper';
@@ -67,6 +68,7 @@ export class TasksService {
           id,
         },
       });
+      Logger.log(task, 'findSingleTask');
       if (!task) {
         throw new BadRequestException('Task not found');
       }
