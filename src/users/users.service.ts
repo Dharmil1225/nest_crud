@@ -87,7 +87,6 @@ export class UsersService {
   public async updateUser(id: string, data: CreateUserDto) {
     try {
       const user = await this.userRepo.findOne({ where: { id } });
-
       if (!user) throw new BadRequestException('User not found');
       const mapUpdateUserReqData = mapUpdateUser(data);
       await this.userRepo.update({ id }, mapUpdateUserReqData);
