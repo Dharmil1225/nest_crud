@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TasksController } from './tasks.controller';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
+import { UpdateTaskDto } from './dto/update-task.dto';
 
 describe('TasksController', () => {
   let controller: TasksController;
@@ -54,7 +55,7 @@ describe('TasksController', () => {
     expect(service.findAllTask).toBeCalled();
   });
   it('update task service should be called', async () => {
-    const dto = new CreateTaskDto();
+    const dto = new UpdateTaskDto();
     const id = '1';
     controller.updateTask(id, dto);
     expect(service.updateTask).toHaveBeenCalledWith(id, dto);
