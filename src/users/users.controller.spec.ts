@@ -15,11 +15,11 @@ describe('UsersController', () => {
         {
           provide: UsersService,
           useFactory: () => ({
-            createUser: jest.fn(() => { }),
+            createUser: jest.fn(() => {}),
             findAllUser: jest.fn(() => []),
-            findSingleUser: jest.fn(() => { }),
-            updateUser: jest.fn(() => { }),
-            deleteUser: jest.fn(() => { }),
+            findSingleUser: jest.fn(() => {}),
+            updateUser: jest.fn(() => {}),
+            deleteUser: jest.fn(() => {}),
           }),
         },
       ],

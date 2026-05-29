@@ -8,6 +8,7 @@ import { TaskResponseDto } from './dto/task.res.dto';
 import { mapCreateTask, mapUpdateTask } from './mapper/task.mapper';
 import { Repository } from 'typeorm';
 import { CreateTaskDto } from './dto/create-task.dto';
+import { UpdateTaskDto } from './dto/update-task.dto';
 import { Task } from '../database/entities/task.entity';
 import { connection } from '../database/database.module';
 
@@ -87,7 +88,7 @@ export class TasksService {
    * @param data task's requested data
    * @returns it will returns updated task's object
    */
-  public async updateTask(id: string, data: CreateTaskDto) {
+  public async updateTask(id: string, data: UpdateTaskDto) {
     try {
       const task = await this.taskRepo.findOne({ where: { id } });
       if (!task) throw new BadRequestException('Task not found');
