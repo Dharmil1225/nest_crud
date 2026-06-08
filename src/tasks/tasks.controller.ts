@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
+import { UpdateTaskDto } from './dto/update-task.dto';
 import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 import { TaskResponseDto } from './dto/task.res.dto';
 
@@ -65,7 +66,7 @@ export class TasksController {
   })
   @Version('1')
   @Patch(':id')
-  async updateTask(@Param('id') id: string, @Body() data: CreateTaskDto) {
+  async updateTask(@Param('id') id: string, @Body() data: UpdateTaskDto) {
     return this.tasksService.updateTask(id, data);
   }
 

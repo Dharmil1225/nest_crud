@@ -1,5 +1,5 @@
 import { Task } from '../../database/entities/task.entity';
-import { CreateTaskDto } from '../dto/create-task.dto';
+import { UpdateTaskDto } from '../dto/update-task.dto';
 
 /**
  * This mapper function can be used to map request data while creating a task
@@ -20,7 +20,7 @@ export const mapCreateTask = (data: Task) => {
  * @param data task's requested data
  * @returns it will returns mapped object with requested data.
  */
-export const mapUpdateTask = (data: CreateTaskDto) => {
+export const mapUpdateTask = (data: UpdateTaskDto) => {
   return {
     title: data.title,
     description: data.description,

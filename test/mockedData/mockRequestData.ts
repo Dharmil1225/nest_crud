@@ -1,6 +1,7 @@
 import { CreateUserDto } from '../../src/users/dto/create-user.dto';
 import { UserResponseDto } from '../../src/users/dto/user.res.dto';
 import { CreateTaskDto } from '../../src/tasks/dto/create-task.dto';
+import { UpdateTaskDto } from '../../src/tasks/dto/update-task.dto';
 import { TaskResponseDto } from '../../src/tasks/dto/task.res.dto';
 import { TaskStatus } from '../../src/common/constant';
 
@@ -46,7 +47,11 @@ export const getTaskMockRes: TaskResponseDto = {
   ...createTaskMockRes,
 };
 
-export const updateTaskMockReq: CreateTaskDto = { ...createTaskMockReq };
+export const updateTaskMockReq: UpdateTaskDto = {
+  title: 'test task',
+  description: 'test description',
+  status: TaskStatus.PENDING,
+  dueDate: '2026-12-31T00:00:00.000Z',
+};
 
 export const updateTaskMockRes: TaskResponseDto = { ...createTaskMockRes };
-
