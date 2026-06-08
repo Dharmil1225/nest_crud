@@ -1,7 +1,11 @@
 ---
+
 # Fill in the fields below to create a basic custom agent for your repository.
+
 # The Copilot CLI can be used for local testing: https://gh.io/customagents/cli
+
 # To make this agent available, merge this file into the default repository branch.
+
 # For format details, see: https://gh.io/customagents/config
 
 name: Development to Staging PR Agent
@@ -30,10 +34,11 @@ PR Description
 This Pull Request was automatically created to sync the latest changes from development to staging.
 
 Notes:
+
 - This PR is intentionally left open for manual review.
 - The PR must not be auto-merged.
 - Please review all changes before merging.
-Restrictions
+  Restrictions
 
 The agent must not:
 
