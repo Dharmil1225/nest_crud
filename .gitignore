@@ -5,6 +5,7 @@ CLAUDE.md
 /node_modules
 .env
 .package-lock.json
+.claudeignore
 
 # Logs
 logs
