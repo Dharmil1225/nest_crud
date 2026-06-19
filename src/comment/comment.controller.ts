@@ -51,6 +51,21 @@ export class CommentController {
     };
   }
 
+  @Get('task/:taskId')
+  @ApiOperation({ summary: 'Get comments by task ID' })
+  @ApiResponse({
+    status: 200,
+    description: 'Comments retrieved successfully',
+    type: [CommentResDto],
+  })
+  async findByTaskId(@Param('taskId') taskId: string) {
+    const data = await this.commentService.findByTaskId(taskId);
+    return {
+      data,
+      message: 'Comments retrieved successfully',
+    };
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Get a comment by ID' })
   @ApiResponse({
@@ -75,7 +90,10 @@ export class CommentController {
     type: CommentResDto,
   })
   @ApiResponse({ status: 404, description: 'Comment not found' })
-  async update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
+  async update(
+    @Param('id') id: string,
+    @Body() updateCommentDto: UpdateCommentDto,
+  ) {
     const data = await this.commentService.update(id, updateCommentDto);
     return {
       data,
@@ -91,7 +109,10 @@ export class CommentController {
     type: CommentResDto,
   })
   @ApiResponse({ status: 404, description: 'Comment not found' })
-  async patch(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
+  async patch(
+    @Param('id') id: string,
+    @Body() updateCommentDto: UpdateCommentDto,
+  ) {
     const data = await this.commentService.patch(id, updateCommentDto);
     return {
       data,

@@ -7,9 +7,9 @@ export class UpdateCommentDto {
 
   @IsString()
   @IsOptional()
-  userId?: string;
+  authorId?: string;
 
   @IsString()
   @IsOptional()
-  postId?: string;
+  taskId?: string;
 }

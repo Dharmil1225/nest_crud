@@ -1,6 +1,5 @@
-import { Column, Entity, ManyToOne, JoinColumn } from 'typeorm';
+import { Column, Entity } from 'typeorm';
 import { BaseEntity } from './base.entity';
-import { Post } from './post.entity';
 
 @Entity('comments')
 export class Comment extends BaseEntity {
@@ -8,12 +7,8 @@ export class Comment extends BaseEntity {
   content: string;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
-  userId: string;
+  authorId: string;
 
-  @Column()
-  postId: string;
-
-  @ManyToOne(() => Post, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'postId' })
-  post: Post;
+  @Column({ type: 'varchar', length: 255 })
+  taskId: string;
 }

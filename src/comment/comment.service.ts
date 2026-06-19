@@ -37,6 +37,14 @@ export class CommentService {
     return this.commentMapper.toResponseDto(comment);
   }
 
+  async findByTaskId(taskId: string): Promise<CommentResDto[]> {
+    const comments = await this.commentsRepository.find({
+      where: { taskId },
+    });
+
+    return this.commentMapper.toResponseDtoArray(comments);
+  }
+
   async update(
     id: string,
     updateCommentDto: UpdateCommentDto,

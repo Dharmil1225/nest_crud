@@ -3,9 +3,9 @@ export class CommentResDto {
 
   content: string;
 
-  userId: string;
+  authorId: string;
 
-  postId: string;
+  taskId: string;
 
   createdAt: Date;
 

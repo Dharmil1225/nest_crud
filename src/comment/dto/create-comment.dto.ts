@@ -7,9 +7,9 @@ export class CreateCommentDto {
 
   @IsString()
   @IsOptional()
-  userId?: string;
+  authorId?: string;
 
   @IsString()
   @IsNotEmpty()
-  postId: string;
+  taskId: string;
 }
