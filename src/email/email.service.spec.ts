@@ -32,7 +32,8 @@ describe('EmailService', () => {
     service = module.get<EmailService>(EmailService);
 
     // Retrieve the sendMail spy from the mocked transporter
-    const transporter = (nodemailer.createTransport as jest.Mock).mock.results[0]?.value;
+    const transporter = (nodemailer.createTransport as jest.Mock).mock
+      .results[0]?.value;
     sendMailMock = transporter?.sendMail as jest.Mock;
   });
 
@@ -50,7 +51,9 @@ describe('EmailService', () => {
       const callArgs = sendMailMock.mock.calls[0][0];
       expect(callArgs.to).toBe('user@example.com');
       expect(callArgs.text).toContain('test-token-123');
-      expect(callArgs.text).toContain('/api/auth/verify-email?token=test-token-123');
+      expect(callArgs.text).toContain(
+        '/api/auth/verify-email?token=test-token-123',
+      );
       expect(callArgs.subject).toMatch(/verify/i);
     });
 

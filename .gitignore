@@ -1,6 +1,7 @@
 # compiled output
 /dist
 /.claude
+CLAUDE.md
 /node_modules
 .env
 .package-lock.json
